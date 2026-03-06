@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2059B567-6AE5-4B32-9CC7-2D0D4BAFD235}</ProjectGuid>
+    <ProjectGuid>{75E89623-AD1E-432E-A4C6-F8665E75DC8F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>DAL</RootNamespace>
     <AssemblyName>DAL</AssemblyName>
@@ -43,26 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI_Models\HealthPredictionDAL.cs" />
     <Compile Include="Core\DataProvider.cs" />
-    <Compile Include="Interfaces\IBaseRepository.cs" />
+    <Compile Include="Entities\Address.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DatLichDAL.cs" />
-    <Compile Include="Repositories\DichVuDAL.cs" />
-    <Compile Include="Repositories\HoaDonDAL.cs" />
-    <Compile Include="Repositories\KhachHangDAL.cs" />
-    <Compile Include="Repositories\LichChamSocDAL.cs" />
-    <Compile Include="Repositories\NhaCungCapDAL.cs" />
-    <Compile Include="Repositories\NhanVienDAL.cs" />
-    <Compile Include="Repositories\NhatKyDAL.cs" />
-    <Compile Include="Repositories\PhieuNhanGuiDAL.cs" />
-    <Compile Include="Repositories\PhieuNhapHangDAL.cs" />
-    <Compile Include="Repositories\TaiKhoanDAL.cs" />
-    <Compile Include="Repositories\ThuCungDAL.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\PetRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
+    <Compile Include="ViewModels\ProductRequest.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{6fa8440c-1fbe-4dba-9330-27c4aba51e53}</Project>

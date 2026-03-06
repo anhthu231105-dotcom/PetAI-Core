@@ -8,31 +8,44 @@ using System.Threading.Tasks;
 
 namespace DAL.Core
 {
-    public class DataProvider
+    public  class DataProvider
     {
-        // Chú ý: Thay đổi tên Server(Data Source) cho đúng với máy của bạn
-        private string connectionString = @"Data Source=DESKTOP-P9T2K3A\SQLEXPRESS;Initial Catalog=QLyThuCung;Integrated Security=True";
+        // 1. CHUỖI KẾT NỐI: Anh Thư kiểm tra tên Server của bạn (thường là .\SQLEXPRESS)
+        private string connectionSTR = @"Data Source=DESKTOP-P9T2K3A\SQLEXPRESS;Initial Catalog=PetAI_Core_DB;Integrated Security=True";
 
+        // 2. PATTERN SINGLETON: Đảm bảo chỉ có 1 trạm kết nối duy nhất
+        private static DataProvider instance;
+        public static DataProvider Instance
+        {
+            get { if (instance == null) instance = new DataProvider(); return instance; }
+            private set { instance = value; }
+        }
+
+        private DataProvider() { }
+
+        // 3. HÀM THỰC THI SELECT: Trả về một bảng dữ liệu (DataTable) để hiện lên GridView
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
+
                 if (parameter != null)
                 {
                     string[] listPara = query.Split(' ');
                     int i = 0;
                     foreach (string item in listPara)
                     {
-                        if (item.Contains("@"))
+                        if (item.Contains('@'))
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
                 }
+
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 adapter.Fill(data);
                 connection.Close();
@@ -40,31 +53,62 @@ namespace DAL.Core
             return data;
         }
 
+        // 4. HÀM THỰC THI INSERT/UPDATE/DELETE: Trả về số dòng thành công (int)
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
             int data = 0;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
+
                 if (parameter != null)
                 {
                     string[] listPara = query.Split(' ');
                     int i = 0;
                     foreach (string item in listPara)
                     {
-                        if (item.Contains("@"))
+                        if (item.Contains('@'))
                         {
                             command.Parameters.AddWithValue(item, parameter[i]);
                             i++;
                         }
                     }
                 }
+
                 data = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            return data;
+        }
+
+        // 5. HÀM TRẢ VỀ MỘT GIÁ TRỊ DUY NHẤT (Ví dụ: Đếm số lượng Pet, tính tổng tiền)
+        public object ExecuteScalar(string query, object[] parameter = null)
+        {
+            object data = 0;
+            using (SqlConnection connection = new SqlConnection(connectionSTR))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+
+                data = command.ExecuteScalar();
                 connection.Close();
             }
             return data;
         }
     }
 }
-

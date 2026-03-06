@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.5-beta1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,26 +47,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI_Models\HealthPredictionDTO.cs" />
-    <Compile Include="Entities\DatLichDTO.cs" />
-    <Compile Include="Entities\DichVuDTO.cs" />
-    <Compile Include="Entities\HoaDonDTO.cs" />
-    <Compile Include="Entities\KhachHangDTO.cs" />
-    <Compile Include="Entities\LichChamSocDTO.cs" />
-    <Compile Include="Entities\NhaCungCapDTO.cs" />
-    <Compile Include="Entities\NhanVienDTO.cs" />
-    <Compile Include="Entities\NhatKyDTO.cs" />
-    <Compile Include="Entities\PhieuNhanGuiDTO.cs" />
-    <Compile Include="Entities\PhieuNhapHangDTO.cs" />
-    <Compile Include="Entities\TaiKhoanDTO.cs" />
-    <Compile Include="Entities\ThuCungDTO.cs" />
+    <Compile Include="Entities\AccountDTO.cs" />
+    <Compile Include="Entities\DiseaseDTO.cs" />
+    <Compile Include="Entities\InvoiceDetailDTO.cs" />
+    <Compile Include="Entities\MedicineDTO.cs" />
+    <Compile Include="Entities\ServiceDTO.cs" />
+    <Compile Include="Entities\InvoiceDTO.cs" />
+    <Compile Include="Entities\CustomerDTO.cs" />
+    <Compile Include="Entities\AppointmentDTO.cs" />
+    <Compile Include="Entities\EmployeeDTO.cs" />
+    <Compile Include="Entities\ImportOrderDTO.cs" />
+    <Compile Include="Entities\StayRegistrationDTO.cs" />
+    <Compile Include="Entities\PetDTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\ServiceResponse.cs" />
-    <Compile Include="ViewModels\DoanhThuDTO.cs" />
-    <Compile Include="ViewModels\PhieuGuiChiTietDTO.cs" />
+    <Compile Include="ViewModels\RevenueDTO.cs" />
+    <Compile Include="ViewModels\StayDetailL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

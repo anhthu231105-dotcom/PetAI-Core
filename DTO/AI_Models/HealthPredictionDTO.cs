@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DTO.AI_Models
 {
     public class HealthPredictionDTO
     {
-        public string MaThuCung { get; set; }
-        public double DiemSucKhoe { get; set; } // Ví dụ: 0.8 (80%)
-        public string KetLuanAI { get; set; }    // Ví dụ: "Có dấu hiệu stress"
-        public string CanhBao { get; set; }      // Ví dụ: "Cần đi khám bác sĩ"
-        public List<string> DichVuGoiY { get; set; } // AI gợi ý các dịch vụ phù hợp
+        public int RecordID { get; set; }
+        public string PetID { get; set; }
+        public double Temperature { get; set; }
+        public int HeartRate { get; set; }
+        public string DiagnosisID { get; set; } // Liên kết tới mã bệnh lý
+        public DateTime PredictionDate { get; set; }
     }
 }
