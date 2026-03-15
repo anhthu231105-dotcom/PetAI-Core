@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Core;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,72 +9,50 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    //Thư nhớ đổi chuỗi kết nối này cho khớp với tên Server của bạn nhé
-    public class PetRepository 
+    public class PetRepository
     {
-        private string connectionString = @"Data Source=DESKTOP-P9T2K3A\SQLEXPRESS;Initial Catalog=PetAI_Core_DB;Integrated Security=True";
-
-        // 1. Lấy danh sách thú cưng
         public DataTable GetDataTable()
         {
-            DataTable dt = new DataTable();
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM Pet"; // Đảm bảo tên bảng trong SQL là Pet
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                da.Fill(dt);
-            }
-            return dt;
+            string query = "SELECT * FROM Pet";
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        // 2. Thêm thú cưng mới
-        public bool Insert(string id, string name, string species, string breed, int age)
+        // 1. Thêm mới Pet: Đã thêm Weight vào SQL và khớp tham số
+        public bool Insert(string id, string name, string species, string breed, int age, double weight, string customerID)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "INSERT INTO Pet (PetID, PetName, Species, Breed, Age) VALUES (@id, @name, @species, @breed, @age)";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@species", species);
-                cmd.Parameters.AddWithValue("@breed", breed);
-                cmd.Parameters.AddWithValue("@age", age);
+            string query = "INSERT INTO Pet (PetID, PetName, Species, Breed, Age, Weight, CustomerID) " +
+               "VALUES ( @id , @name , @species , @breed , @age , @weight , @customerID )";
 
-                conn.Open();
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            object[] parameter = new object[] { id, name, species, breed, age, weight, customerID };
+
+            return DataProvider.Instance.ExecuteNonQuery(query, parameter) > 0;
         }
 
-        // 3. Cập nhật thông tin
-        public bool Update(string id, string name, string species, string breed, int age)
+        // 2. Cập nhật Pet: Đã thêm cập nhật Weight và CustomerID
+        public bool Update(string id, string name, string species, string breed, int age, double weight, string customerID)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "UPDATE Pet SET PetName=@name, Species=@species, Breed=@breed, Age=@age WHERE PetID=@id";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@species", species);
-                cmd.Parameters.AddWithValue("@breed", breed);
-                cmd.Parameters.AddWithValue("@age", age);
+            string query = "UPDATE Pet SET PetName = @name , Species = @species , Breed = @breed , Age = @age , Weight = @weight , CustomerID = @customerID WHERE PetID = @id";
 
-                conn.Open();
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            // Thứ tự này đã chuẩn rồi: name, species, breed, age, weight, customerID, id
+            object[] parameter = new object[] { name, species, breed, age, weight, customerID, id };
+
+            return DataProvider.Instance.ExecuteNonQuery(query, parameter) > 0;
         }
 
-        // 4. Xóa thú cưng
+        // 3. Xóa Pet
         public bool Delete(string id)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "DELETE FROM Pet WHERE PetID=@id";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
+            string query = "DELETE FROM Pet WHERE PetID = @id";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { id }) > 0;
+        }
+        public DataTable GetPetsByCustomer(string customerID)
+        {
+            // Lệnh SQL để lấy đúng thú cưng của khách hàng đang chọn
+            string query = "SELECT PetID, PetName FROM Pet WHERE CustomerID = @id";
+            object[] parameter = new object[] { customerID };
 
-                conn.Open();
-                return cmd.ExecuteNonQuery() > 0;
-            }
+            // Gọi DataProvider để thực thi câu lệnh
+            return DataProvider.Instance.ExecuteQuery(query, parameter);
         }
     }
 }

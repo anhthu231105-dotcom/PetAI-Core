@@ -40,12 +40,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCustomerID = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboCustomer = new System.Windows.Forms.ComboBox();
+            this.txtWeight = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.dgvPet = new System.Windows.Forms.DataGridView();
             this.colPetID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colweight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPetName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSpecies = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colBreed = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +65,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(192, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(279, 29);
             this.label1.TabIndex = 0;
@@ -82,6 +89,9 @@
             // cboSpecies
             // 
             this.cboSpecies.FormattingEnabled = true;
+            this.cboSpecies.Items.AddRange(new object[] {
+            "Chó ",
+            "Mèo"});
             this.cboSpecies.Location = new System.Drawing.Point(500, 74);
             this.cboSpecies.Name = "cboSpecies";
             this.cboSpecies.Size = new System.Drawing.Size(121, 24);
@@ -100,6 +110,7 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 22);
             this.txtAge.TabIndex = 5;
+            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // label2
             // 
@@ -153,6 +164,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCustomerID);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.cboCustomer);
+            this.groupBox1.Controls.Add(this.txtWeight);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label6);
@@ -165,17 +182,72 @@
             this.groupBox1.Controls.Add(this.txtBreed);
             this.groupBox1.Location = new System.Drawing.Point(3, 41);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(681, 167);
+            this.groupBox1.Size = new System.Drawing.Size(732, 207);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Thông tin ";
+            // 
+            // txtCustomerID
+            // 
+            this.txtCustomerID.Location = new System.Drawing.Point(555, 167);
+            this.txtCustomerID.Name = "txtCustomerID";
+            this.txtCustomerID.Size = new System.Drawing.Size(100, 22);
+            this.txtCustomerID.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 173);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 16);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Tên KH";
+            // 
+            // cboCustomer
+            // 
+            this.cboCustomer.FormattingEnabled = true;
+            this.cboCustomer.Items.AddRange(new object[] {
+            "Trần Minh Tâm",
+            "Lê Thị Hoa"});
+            this.cboCustomer.Location = new System.Drawing.Point(74, 165);
+            this.cboCustomer.Name = "cboCustomer";
+            this.cboCustomer.Size = new System.Drawing.Size(121, 24);
+            this.cboCustomer.TabIndex = 15;
+            this.cboCustomer.SelectedIndexChanged += new System.EventHandler(this.cboCustomer_SelectedIndexChanged);
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Location = new System.Drawing.Point(512, 126);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(100, 22);
+            this.txtWeight.TabIndex = 13;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(416, 167);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(127, 20);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Mã khách hàng ";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(422, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(85, 20);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Cân nặng ";
             // 
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(29, 236);
+            this.btnAdd.Location = new System.Drawing.Point(22, 268);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(87, 31);
+            this.btnAdd.Size = new System.Drawing.Size(111, 31);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "➕ Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -184,7 +256,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(188, 236);
+            this.btnUpdate.Location = new System.Drawing.Point(223, 268);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 31);
             this.btnUpdate.TabIndex = 13;
@@ -195,7 +267,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(353, 236);
+            this.btnDelete.Location = new System.Drawing.Point(423, 268);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(87, 31);
             this.btnDelete.TabIndex = 14;
@@ -206,7 +278,7 @@
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(516, 236);
+            this.btnReset.Location = new System.Drawing.Point(604, 268);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(108, 31);
             this.btnReset.TabIndex = 15;
@@ -221,11 +293,12 @@
             this.dgvPet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPet.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPetID,
+            this.colweight,
             this.colPetName,
             this.colSpecies,
             this.colBreed,
             this.colAge});
-            this.dgvPet.Location = new System.Drawing.Point(10, 294);
+            this.dgvPet.Location = new System.Drawing.Point(10, 316);
             this.dgvPet.MultiSelect = false;
             this.dgvPet.Name = "dgvPet";
             this.dgvPet.ReadOnly = true;
@@ -233,20 +306,30 @@
             this.dgvPet.RowHeadersWidth = 51;
             this.dgvPet.RowTemplate.Height = 24;
             this.dgvPet.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPet.Size = new System.Drawing.Size(674, 228);
+            this.dgvPet.Size = new System.Drawing.Size(702, 206);
             this.dgvPet.TabIndex = 16;
             this.dgvPet.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPet_CellClick);
             this.dgvPet.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPet_CellContentClick);
             // 
             // colPetID
             // 
+            this.colPetID.DataPropertyName = "PetID";
             this.colPetID.HeaderText = "Mã Pet";
             this.colPetID.MinimumWidth = 6;
             this.colPetID.Name = "colPetID";
             this.colPetID.ReadOnly = true;
             // 
+            // colweight
+            // 
+            this.colweight.DataPropertyName = "Weight";
+            this.colweight.HeaderText = "Cân nặng";
+            this.colweight.MinimumWidth = 6;
+            this.colweight.Name = "colweight";
+            this.colweight.ReadOnly = true;
+            // 
             // colPetName
             // 
+            this.colPetName.DataPropertyName = "PetName";
             this.colPetName.HeaderText = "Tên Thú Cưng";
             this.colPetName.MinimumWidth = 6;
             this.colPetName.Name = "colPetName";
@@ -254,6 +337,7 @@
             // 
             // colSpecies
             // 
+            this.colSpecies.DataPropertyName = "Species";
             this.colSpecies.HeaderText = "Loài";
             this.colSpecies.MinimumWidth = 6;
             this.colSpecies.Name = "colSpecies";
@@ -261,6 +345,7 @@
             // 
             // colBreed
             // 
+            this.colBreed.DataPropertyName = "Breed";
             this.colBreed.HeaderText = "Giống";
             this.colBreed.MinimumWidth = 6;
             this.colBreed.Name = "colBreed";
@@ -268,6 +353,7 @@
             // 
             // colAge
             // 
+            this.colAge.DataPropertyName = "Age";
             this.colAge.HeaderText = "Tuổi";
             this.colAge.MinimumWidth = 6;
             this.colAge.Name = "colAge";
@@ -277,7 +363,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 532);
+            this.ClientSize = new System.Drawing.Size(773, 532);
             this.Controls.Add(this.dgvPet);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnDelete);
@@ -315,7 +401,14 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.DataGridView dgvPet;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtWeight;
+        private System.Windows.Forms.ComboBox cboCustomer;
+        private System.Windows.Forms.TextBox txtCustomerID;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPetID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colweight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPetName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSpecies;
         private System.Windows.Forms.DataGridViewTextBoxColumn colBreed;

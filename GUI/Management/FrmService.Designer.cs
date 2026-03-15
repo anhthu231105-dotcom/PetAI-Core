@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtNote = new System.Windows.Forms.TextBox();
@@ -44,11 +43,11 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.dgvService = new System.Windows.Forms.DataGridView();
+            this.btnThem = new System.Windows.Forms.Button();
             this.colServiceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnThem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
             this.SuspendLayout();
@@ -76,21 +75,21 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(1, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(798, 128);
+            this.groupBox1.Size = new System.Drawing.Size(623, 128);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG TIN DỊCH VỤ";
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(542, 20);
+            this.txtPrice.Location = new System.Drawing.Point(424, 27);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(157, 27);
             this.txtPrice.TabIndex = 7;
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(543, 74);
+            this.txtNote.Location = new System.Drawing.Point(424, 67);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(157, 27);
             this.txtNote.TabIndex = 6;
@@ -112,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(465, 81);
+            this.label5.Location = new System.Drawing.Point(346, 74);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 3;
@@ -121,7 +120,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(465, 27);
+            this.label4.Location = new System.Drawing.Point(347, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 2;
@@ -148,7 +147,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(233, 180);
+            this.btnSua.Location = new System.Drawing.Point(165, 180);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(93, 42);
             this.btnSua.TabIndex = 3;
@@ -159,7 +158,7 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(457, 180);
+            this.btnXoa.Location = new System.Drawing.Point(310, 180);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(93, 42);
             this.btnXoa.TabIndex = 4;
@@ -170,7 +169,7 @@
             // btnLamMoi
             // 
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Location = new System.Drawing.Point(653, 180);
+            this.btnLamMoi.Location = new System.Drawing.Point(453, 180);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(112, 42);
             this.btnLamMoi.TabIndex = 5;
@@ -190,38 +189,12 @@
             this.colNote});
             this.dgvService.Location = new System.Drawing.Point(1, 228);
             this.dgvService.Name = "dgvService";
+            this.dgvService.RowHeadersVisible = false;
             this.dgvService.RowHeadersWidth = 51;
             this.dgvService.RowTemplate.Height = 24;
-            this.dgvService.Size = new System.Drawing.Size(798, 225);
+            this.dgvService.Size = new System.Drawing.Size(564, 225);
             this.dgvService.TabIndex = 6;
             this.dgvService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvService_CellClick);
-            // 
-            // colServiceID
-            // 
-            this.colServiceID.HeaderText = "Mã Dịch Vụ";
-            this.colServiceID.MinimumWidth = 6;
-            this.colServiceID.Name = "colServiceID";
-            // 
-            // colServiceName
-            // 
-            this.colServiceName.HeaderText = "Tên Dịch Vụ";
-            this.colServiceName.MinimumWidth = 6;
-            this.colServiceName.Name = "colServiceName";
-            // 
-            // colPrice
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.Format = "#";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colPrice.HeaderText = "Giá Tiền";
-            this.colPrice.MinimumWidth = 6;
-            this.colPrice.Name = "colPrice";
-            // 
-            // colNote
-            // 
-            this.colNote.HeaderText = "Ghi Chú";
-            this.colNote.MinimumWidth = 6;
-            this.colNote.Name = "colNote";
             // 
             // btnThem
             // 
@@ -234,11 +207,42 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
+            // colServiceID
+            // 
+            this.colServiceID.DataPropertyName = "ServiceID";
+            this.colServiceID.HeaderText = "Mã Dịch Vụ";
+            this.colServiceID.MinimumWidth = 6;
+            this.colServiceID.Name = "colServiceID";
+            // 
+            // colServiceName
+            // 
+            this.colServiceName.DataPropertyName = "ServiceName";
+            this.colServiceName.HeaderText = "Tên Dịch Vụ";
+            this.colServiceName.MinimumWidth = 6;
+            this.colServiceName.Name = "colServiceName";
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Format = "#";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colPrice.HeaderText = "Giá Tiền";
+            this.colPrice.MinimumWidth = 6;
+            this.colPrice.Name = "colPrice";
+            // 
+            // colNote
+            // 
+            this.colNote.DataPropertyName = "Note";
+            this.colNote.HeaderText = "Ghi Chú";
+            this.colNote.MinimumWidth = 6;
+            this.colNote.Name = "colNote";
+            // 
             // FrmService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(637, 450);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.dgvService);
             this.Controls.Add(this.btnLamMoi);
@@ -260,7 +264,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPrice;
@@ -274,10 +277,10 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.DataGridView dgvService;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colServiceID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colServiceName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
-        private System.Windows.Forms.Button btnThem;
     }
 }

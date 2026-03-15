@@ -1,4 +1,6 @@
 ﻿using BUS.AI_Services;
+using DAL.AI_Models;
+using DTO.AI_Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,94 +15,110 @@ namespace GUI.Management
 {
     public partial class FrmAIPrediction : Form
     {
+        // 1. Khai báo các đối tượng cần thiết
         private readonly HealthAssistant _aiAssistant = new HealthAssistant();
+        private HealthPredictionDTO currentPrediction; // Giỏ đựng kết quả dự đoán
+      //  private readonly HealthAssistant _aiAssistant = new HealthAssistant();
         public FrmAIPrediction()
         {
             InitializeComponent();
-            // Thiết lập giá trị mặc định cho các ComboBox để tránh bị trống
-            cboAppetite.SelectedIndex = 0; // Thường là "Bình thường"
-            cboActivity.SelectedIndex = 0;  // Thường là "Linh hoạt"
         }
 
+        private void FrmAIPrediction_Load(object sender, EventArgs e)
+        {
+            // Thiết lập giá trị mặc định cho các lựa chọn
+            cboAppetite.SelectedIndex = 0; // "Bình thường"
+            cboActivity.SelectedIndex = 0;  // "Linh hoạt"
+
+            // Thư nhớ kiểm tra hàm Load dữ liệu cho cboPetList ở đây nhé
+        }
+
+        // ==========================================
+        // 2. NÚT DỰ ĐOÁN: Gọi AI từ Python
+        // ==========================================
         private async void btnPredict_Click(object sender, EventArgs e)
         {
             try
             {
-                // 1. Kiểm tra xem Thư đã nhập dữ liệu chưa
-                if (string.IsNullOrWhiteSpace(txtTemp.Text) || string.IsNullOrWhiteSpace(txtWeight.Text))
-                {
-                    MessageBox.Show("Anh Thư ơi, hãy nhập đầy đủ Thân nhiệt và Cân nặng của bé nhé!", "Thông báo");
-                    return;
-                }
-
-                // 2. Lấy dữ liệu từ giao diện
-                float temp;
-                if (!float.TryParse(txtTemp.Text, out temp))
-                {
-                    MessageBox.Show("Thân nhiệt phải là số (Ví dụ: 38,5)", "Lỗi nhập liệu");
-                    return;
-                }
-
+                // 1. Lấy dữ liệu (Thư viết phần này chuẩn rồi!)
+                string temp = txtTemp.Text;
                 string appetite = cboAppetite.Text;
-                string activity = cboActivity.Text; // Lấy giá trị từ ComboBox Activity
+                string activity = cboActivity.Text;
 
-                // Hiệu ứng chờ đợi cho chuyên nghiệp
-                txtAdvice.Text = "Đang gửi dữ liệu sang AI Python, Thư đợi xíu nha...";
-                lblStatus.Text = "Đang xử lý...";
-                lblStatus.ForeColor = Color.Blue;
+                // 2. Gọi tầng BUS (Hàm này phải là duy nhất trong HealthAssistant.cs)
+                // Mình gán trực tiếp vào currentPrediction để dùng cho nút LƯU sau này
+                currentPrediction = await _aiAssistant.GetAIHealthPrediction(temp, appetite, activity);
 
-                // 3. Gọi Python thông qua tầng BUS
-                // Hàm này sẽ đợi Python trả về kết quả rồi mới chạy tiếp
-                var prediction = await _aiAssistant.GetAIHealthPrediction(temp, appetite, activity);
-
-                // 4. Hiển thị kết quả lên các Control của Thư
-                lblStatus.Text = prediction.Result; // Trạng thái (Bình thường / Nguy hiểm)
-                txtAdvice.Text = prediction.Advice; // Lời khuyên chi tiết hiện vào ô Multiline
-
-                // Trong hàm btnPredict_Click, sau khi có kết quả:
-                lblStatus.Text = prediction.Result;
-                txtAdvice.Text = prediction.Advice;
-
-                // Đổi màu nền ô Lời khuyên cho nổi bật
-                if (prediction.Result == "Cảnh báo nguy hiểm")
+                if (currentPrediction != null)
                 {
-                    txtAdvice.BackColor = Color.MistyRose; // Màu hồng nhạt cảnh báo
-                    lblStatus.ForeColor = Color.Red;
-                }
-                else
-                {
-                    txtAdvice.BackColor = Color.Honeydew; // Màu xanh nhạt an toàn
-                    lblStatus.ForeColor = Color.Green;
+                    // 3. Hiển thị lên Form
+                    txtConfidence.Text = currentPrediction.Confidence.ToString() + "%";
+                    txtAdvice.Text = currentPrediction.Advice;
+                    lblStatus.Text = currentPrediction.Result;
+
+                    // 4. Xử lý màu sắc sinh động
+                    if (currentPrediction.Result == "Cảnh báo nguy hiểm")
+                    {
+                        lblStatus.ForeColor = Color.Red;
+                        txtAdvice.BackColor = Color.MistyRose;
+                    }
+                    else
+                    {
+                        lblStatus.ForeColor = Color.Green;
+                        txtAdvice.BackColor = Color.White;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi kết nối: " + ex.Message + "\n(Thư nhớ kiểm tra xem file Python đã bật chưa nhé!)");
+                // Thông báo lỗi thân thiện nếu chưa bật Python
+                MessageBox.Show("Thư ơi, kiểm tra lại: " + ex.Message, "Thông báo");
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // ==========================================
+        // 3. NÚT LƯU KẾT QUẢ: Lưu vào SQL Server
+        // ==========================================
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtAdvice.Text) || txtAdvice.Text.Contains("Đang gửi"))
+            // Kiểm tra xem đã bấm dự đoán chưa
+            if (currentPrediction == null || currentPrediction.Result == "Lỗi kết nối")
             {
-                MessageBox.Show("Chưa có kết quả để lưu đâu Thư ơi!", "Nhắc nhở");
+                MessageBox.Show("Thư phải bấm dự đoán thành công trước khi lưu nhé!", "Thông báo");
                 return;
             }
 
-            // Ở đây Thư có thể gọi PetService để lưu vào SQL Server
-            MessageBox.Show("Đã lưu kết quả chẩn đoán của bé vào hệ thống!", "Thành công");
-        
-}
+            try
+            {
+                // Gán mã thú cưng từ ComboBox
+                if (cboPetList.SelectedValue != null)
+                {
+                    currentPrediction.PetID = cboPetList.SelectedValue.ToString();
+                }
+                else
+                {
+                    // Nếu chưa load kịp ID, Thư có thể tạm gán để test
+                    currentPrediction.PetID = "P001";
+                }
 
-        private void FrmAIPrediction_Load(object sender, EventArgs e)
-        {
-            cboAppetite.SelectedIndex = 0;
-            cboActivity.SelectedIndex = 0;
+                // Điền thêm các thông số cần thiết để khớp với bảng HealthRecord
+                currentPrediction.Temperature = double.Parse(txtTemp.Text);
+                currentPrediction.HeartRate = 80; // Giá trị mặc định hoặc lấy từ cảm biến
+                currentPrediction.DiagnosisID = "D001"; // Mặc định mã bệnh
+                currentPrediction.PredictionDate = DateTime.Now;
+
+                // Gọi tầng DAL để thực hiện câu lệnh INSERT vào SQL
+                bool isSaved = HealthPredictionDAL.Instance.SavePrediction(currentPrediction);
+
+                if (isSaved)
+                {
+                    MessageBox.Show("Đã lưu lịch sử sức khỏe của bé vào Database thành công!", "Tuyệt vời Thư nhé");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi lưu dữ liệu: " + ex.Message);
+            }
         }
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnCustomer = new System.Windows.Forms.Button();
             this.btnInvoice = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnAccount = new System.Windows.Forms.Button();
@@ -39,10 +40,8 @@
             this.btnPet = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btnCustomer = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +68,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 453);
             this.panel2.TabIndex = 1;
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomer.Location = new System.Drawing.Point(13, 169);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(144, 33);
+            this.btnCustomer.TabIndex = 7;
+            this.btnCustomer.Text = "👤Khách hàng";
+            this.btnCustomer.UseVisualStyleBackColor = true;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnInvoice
             // 
@@ -152,50 +162,32 @@
             this.panel3.Controls.Add(this.lblTitle);
             this.panel3.Location = new System.Drawing.Point(165, -1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(649, 106);
+            this.panel3.Size = new System.Drawing.Size(708, 558);
             this.panel3.TabIndex = 2;
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlContent.BackgroundImage")));
+            this.pnlContent.Location = new System.Drawing.Point(0, 63);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(708, 492);
+            this.pnlContent.TabIndex = 3;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(230, 26);
+            this.lblTitle.Location = new System.Drawing.Point(63, 28);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(186, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "TRANG CHỦ ";
             // 
-            // pnlContent
-            // 
-            this.pnlContent.Location = new System.Drawing.Point(69, 105);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(594, 442);
-            this.pnlContent.TabIndex = 3;
-            // 
-            // btnCustomer
-            // 
-            this.btnCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomer.Location = new System.Drawing.Point(13, 169);
-            this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(144, 33);
-            this.btnCustomer.TabIndex = 7;
-            this.btnCustomer.Text = "👤Khách hàng";
-            this.btnCustomer.UseVisualStyleBackColor = true;
-            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(237, 102);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(577, 455);
-            this.panel4.TabIndex = 3;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 579);
-            this.Controls.Add(this.panel4);
+            this.ClientSize = new System.Drawing.Size(1061, 579);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -225,6 +217,5 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.Button btnCustomer;
-        private System.Windows.Forms.Panel panel4;
     }
 }

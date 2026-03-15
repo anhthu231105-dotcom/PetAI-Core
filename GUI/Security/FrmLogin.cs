@@ -17,7 +17,7 @@ namespace GUI.Security
     public partial class FrmLogin : Form
     {
         // Khởi tạo nghiệp vụ đăng nhập từ tầng BUS
-        private readonly AccountService _accBus = new AccountService();
+        private readonly UserService _accBus = new UserService();
         public FrmLogin()
         {
             InitializeComponent();
@@ -43,10 +43,14 @@ namespace GUI.Security
             if (_accBus.Authenticate(user, pass)) // <-- FIXED: Use Authenticate method
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo");
-                this.Hide();
-                FrmMain main = new FrmMain();
-                main.Show();
+                this.Hide(); // Ẩn form đăng nhập
+
+                FrmMain f = new FrmMain();
+                f.ShowDialog(); // Hiện form chính lên (Dùng ShowDialog để nó giữ quyền ưu tiên)
+
+                this.Close(); // Đóng hẳn form đăng nhập sau khi thoát form chính
             }
+
             else
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu không chính xác!", "Lỗi");

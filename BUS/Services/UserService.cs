@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BUS.Services
 {
-    public class AccountService
+    public class UserService
     {
         // Khởi tạo Repository để làm việc với Database
         private readonly UserRepository _userRepo = new UserRepository();

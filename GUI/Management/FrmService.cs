@@ -1,4 +1,4 @@
-﻿using BUS.Management; // Thư kiểm tra namespace của file ServiceBUS nhé
+﻿//using BUS.Management; // Thư kiểm tra namespace của file ServiceBUS nhé
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS.Services;
+
 
 namespace GUI.Management
 {
@@ -23,7 +24,8 @@ namespace GUI.Management
         private void FrmService_Load(object sender, EventArgs e)
         {
             LoadData();
-          
+            SetupGrid();
+            btnLamMoi_Click(sender, e); // Tự nhảy mã ngay khi mở form
         }
         private void LoadData()
         {
@@ -31,10 +33,13 @@ namespace GUI.Management
         }
         private void SetupGrid()
         {
+            // Giữ lại các cột Thư đã thiết kế, ẩn các cột tự sinh ra từ SQL
+            if (dgvService.Columns.Contains("ServiceID")) dgvService.Columns["ServiceID"].Visible = false;
+            if (dgvService.Columns.Contains("ServiceName")) dgvService.Columns["ServiceName"].Visible = false;
+            if (dgvService.Columns.Contains("Price")) dgvService.Columns["Price"].Visible = false;
+            if (dgvService.Columns.Contains("Note")) dgvService.Columns["Note"].Visible = false;
+
             dgvService.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvService.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            // Định dạng tiền tệ cho cột Đơn giá (cột số 2 hoặc tên là Price)
-            dgvService.Columns["Price"].DefaultCellStyle.Format = "#";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -105,13 +110,13 @@ namespace GUI.Management
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            txtServiceID.Clear();
+            txtServiceID.Text = _serBus.GetNewServiceID(); // Gọi hàm tự nhảy mã ở đây
             txtServiceName.Clear();
             txtPrice.Clear();
             txtNote.Clear();
 
-            txtServiceID.ReadOnly = false; // Cho phép nhập lại mã nếu đang khóa
-            txtServiceID.Focus(); // Đưa con trỏ chuột về ô Mã dịch vụ
+            txtServiceID.ReadOnly = true; // Khóa lại luôn cho Thư khỏi lỡ tay sửa làm trùng mã
+            txtServiceName.Focus();
         }
 
         private void dgvService_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,14 +124,16 @@ namespace GUI.Management
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvService.Rows[e.RowIndex];
-                txtServiceID.Text = row.Cells["ServiceID"].Value.ToString();
-                txtServiceName.Text = row.Cells["ServiceName"].Value.ToString();
-                txtPrice.Text = row.Cells["Price"].Value.ToString();
-                txtNote.Text = row.Cells["Note"].Value.ToString();
 
-                txtServiceID.ReadOnly = true; // Khóa mã dịch vụ lại không cho sửa ID
+                // Thư phải dùng đúng cái (Name) mà Thư vừa đặt trong Design nhé
+                txtServiceID.Text = row.Cells["colServiceID"].Value.ToString();
+                txtServiceName.Text = row.Cells["colServiceName"].Value.ToString();
+                txtPrice.Text = row.Cells["colPrice"].Value.ToString();
+                txtNote.Text = row.Cells["colNote"].Value.ToString();
+
+                txtServiceID.ReadOnly = true;
             }
         }
-    }
+        }
 }
 

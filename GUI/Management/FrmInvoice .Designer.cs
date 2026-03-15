@@ -28,23 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtInvoiceID = new System.Windows.Forms.TextBox();
-            this.cbCustomer = new System.Windows.Forms.ComboBox();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cbPet = new System.Windows.Forms.ComboBox();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.cbCustomer = new System.Windows.Forms.ComboBox();
+            this.txtInvoiceID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.lablbe = new System.Windows.Forms.Label();
             this.lable = new System.Windows.Forms.Label();
             this.cbService = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.dgvBill = new System.Windows.Forms.DataGridView();
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,7 +52,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnThanhToan = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +95,58 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // cbPet
+            // 
+            this.cbPet.FormattingEnabled = true;
+            this.cbPet.Location = new System.Drawing.Point(466, 76);
+            this.cbPet.Name = "cbPet";
+            this.cbPet.Size = new System.Drawing.Size(121, 24);
+            this.cbPet.TabIndex = 8;
+            this.cbPet.SelectedIndexChanged += new System.EventHandler(this.cbPet_SelectedIndexChanged);
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Location = new System.Drawing.Point(462, 32);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(200, 22);
+            this.dtpDate.TabIndex = 7;
+            // 
+            // cbCustomer
+            // 
+            this.cbCustomer.FormattingEnabled = true;
+            this.cbCustomer.Location = new System.Drawing.Point(130, 77);
+            this.cbCustomer.Name = "cbCustomer";
+            this.cbCustomer.Size = new System.Drawing.Size(121, 24);
+            this.cbCustomer.TabIndex = 6;
+            this.cbCustomer.SelectedIndexChanged += new System.EventHandler(this.cbCustomer_SelectedIndexChanged);
+            // 
+            // txtInvoiceID
+            // 
+            this.txtInvoiceID.Location = new System.Drawing.Point(118, 30);
+            this.txtInvoiceID.Name = "txtInvoiceID";
+            this.txtInvoiceID.Size = new System.Drawing.Size(132, 22);
+            this.txtInvoiceID.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(373, 77);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Thú cưng:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(377, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Ngày lập:";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -105,61 +157,11 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Khách hàng:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(508, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Ngày lập:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(508, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Thú cưng:";
-            // 
-            // txtInvoiceID
-            // 
-            this.txtInvoiceID.Location = new System.Drawing.Point(118, 30);
-            this.txtInvoiceID.Name = "txtInvoiceID";
-            this.txtInvoiceID.Size = new System.Drawing.Size(132, 22);
-            this.txtInvoiceID.TabIndex = 5;
-            // 
-            // cbCustomer
-            // 
-            this.cbCustomer.FormattingEnabled = true;
-            this.cbCustomer.Location = new System.Drawing.Point(130, 77);
-            this.cbCustomer.Name = "cbCustomer";
-            this.cbCustomer.Size = new System.Drawing.Size(121, 24);
-            this.cbCustomer.TabIndex = 6;
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Location = new System.Drawing.Point(592, 30);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpDate.TabIndex = 7;
-            // 
-            // cbPet
-            // 
-            this.cbPet.FormattingEnabled = true;
-            this.cbPet.Location = new System.Drawing.Point(602, 75);
-            this.cbPet.Name = "cbPet";
-            this.cbPet.Size = new System.Drawing.Size(121, 24);
-            this.cbPet.TabIndex = 8;
-            // 
             // lablbe
             // 
             this.lablbe.AutoSize = true;
             this.lablbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lablbe.Location = new System.Drawing.Point(137, 185);
+            this.lablbe.Location = new System.Drawing.Point(37, 189);
             this.lablbe.Name = "lablbe";
             this.lablbe.Size = new System.Drawing.Size(133, 25);
             this.lablbe.TabIndex = 3;
@@ -169,7 +171,7 @@
             // 
             this.lable.AutoSize = true;
             this.lable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lable.Location = new System.Drawing.Point(453, 185);
+            this.lable.Location = new System.Drawing.Point(358, 184);
             this.lable.Name = "lable";
             this.lable.Size = new System.Drawing.Size(85, 25);
             this.lable.TabIndex = 4;
@@ -178,37 +180,29 @@
             // cbService
             // 
             this.cbService.FormattingEnabled = true;
-            this.cbService.Location = new System.Drawing.Point(276, 189);
+            this.cbService.Location = new System.Drawing.Point(176, 186);
             this.cbService.Name = "cbService";
             this.cbService.Size = new System.Drawing.Size(121, 24);
             this.cbService.TabIndex = 5;
+            this.cbService.SelectedIndexChanged += new System.EventHandler(this.cbService_SelectedIndexChanged);
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(544, 188);
+            this.txtPrice.Location = new System.Drawing.Point(458, 186);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 22);
             this.txtPrice.TabIndex = 6;
             // 
-            // button1
+            // btnReset
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(114, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 40);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Thêm ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(613, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 40);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Làm mới ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(439, 229);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(82, 40);
+            this.btnReset.TabIndex = 8;
+            this.btnReset.Text = "Làm mới ";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // dgvBill
             // 
@@ -219,11 +213,12 @@
             this.colServiceName,
             this.colPrice,
             this.colNote});
-            this.dgvBill.Location = new System.Drawing.Point(142, 275);
+            this.dgvBill.Location = new System.Drawing.Point(42, 275);
             this.dgvBill.Name = "dgvBill";
+            this.dgvBill.RowHeadersVisible = false;
             this.dgvBill.RowHeadersWidth = 51;
             this.dgvBill.RowTemplate.Height = 24;
-            this.dgvBill.Size = new System.Drawing.Size(553, 180);
+            this.dgvBill.Size = new System.Drawing.Size(553, 106);
             this.dgvBill.TabIndex = 9;
             // 
             // colSTT
@@ -242,8 +237,8 @@
             // 
             // colPrice
             // 
-            dataGridViewCellStyle1.Format = "#";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "#";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle3;
             this.colPrice.HeaderText = "Đơn Giá";
             this.colPrice.MinimumWidth = 6;
             this.colPrice.Name = "colPrice";
@@ -260,7 +255,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(170, 478);
+            this.label6.Location = new System.Drawing.Point(38, 404);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(219, 20);
             this.label6.TabIndex = 10;
@@ -270,7 +265,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(411, 478);
+            this.label7.Location = new System.Drawing.Point(263, 406);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 18);
             this.label7.TabIndex = 11;
@@ -279,35 +274,48 @@
             // btnThanhToan
             // 
             this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThanhToan.Location = new System.Drawing.Point(85, 523);
+            this.btnThanhToan.Location = new System.Drawing.Point(42, 427);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(185, 57);
             this.btnThanhToan.TabIndex = 12;
-            this.btnThanhToan.Text = "THANH TOÁN & IN";
+            this.btnThanhToan.Text = "THANH TOÁN ";
             this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
-            // button4
+            // btnAdd
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(485, 523);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 57);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "ĐÓNG";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(126, 229);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(82, 40);
+            this.btnAdd.TabIndex = 14;
+            this.btnAdd.Text = "Thêm ";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(377, 427);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(166, 57);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.Text = "ĐÓNG";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FrmInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 592);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(695, 592);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnThanhToan);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dgvBill);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.cbService);
             this.Controls.Add(this.lable);
@@ -341,8 +349,7 @@
         private System.Windows.Forms.Label lable;
         private System.Windows.Forms.ComboBox cbService;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
         private System.Windows.Forms.DataGridViewTextBoxColumn colServiceName;
@@ -351,6 +358,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnThanhToan;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnClose;
     }
 }

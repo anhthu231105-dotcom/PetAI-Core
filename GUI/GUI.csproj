@@ -54,11 +54,35 @@
     <Compile Include="Management\FrmAIPrediction.Designer.cs">
       <DependentUpon>FrmAIPrediction.cs</DependentUpon>
     </Compile>
+    <Compile Include="Management\FrmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\FrmCustomer.Designer.cs">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\FrmInvoice .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\FrmInvoice .Designer.cs">
+      <DependentUpon>FrmInvoice .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\FrmPaymentConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\FrmPaymentConfirm.Designer.cs">
+      <DependentUpon>FrmPaymentConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Management\FrmPetManager.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Management\FrmPetManager.Designer.cs">
       <DependentUpon>FrmPetManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\FrmService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\FrmService.Designer.cs">
+      <DependentUpon>FrmService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,8 +129,20 @@
     <EmbeddedResource Include="Management\FrmAIPrediction.resx">
       <DependentUpon>FrmAIPrediction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Management\FrmCustomer.resx">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\FrmInvoice .resx">
+      <DependentUpon>FrmInvoice .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\FrmPaymentConfirm.resx">
+      <DependentUpon>FrmPaymentConfirm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Management\FrmPetManager.resx">
       <DependentUpon>FrmPetManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\FrmService.resx">
+      <DependentUpon>FrmService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

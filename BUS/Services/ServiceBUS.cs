@@ -10,33 +10,29 @@ namespace BUS.Services
 {
     public class ServiceBUS
     {
-        // Khởi tạo Repo để gọi xuống SQL
         private readonly ServiceRepository _serRepo = new ServiceRepository();
 
-        // 1. Lấy toàn bộ danh sách dịch vụ cho DataGridView
-        public DataTable GetAllServices()
-        {
-            // Gọi đúng tên hàm GetDataTable() trong Repository
-            return _serRepo.GetDataTable();
-        }
-        // 2. Thêm dịch vụ (Khớp với các tham số id, tên, giá, ghi chú)
+        public DataTable GetAllServices() => _serRepo.GetDataTable();
+
         public bool AddService(string id, string name, double price, string note)
         {
-            // Có thể thêm logic: nếu giá < 0 thì return false không cho lưu
-            if (price < 0) return false;
             return _serRepo.Insert(id, name, price, note);
         }
 
-        // 3. Sửa dịch vụ
         public bool UpdateService(string id, string name, double price, string note)
         {
-            return _serRepo.Insert(id, name, price, note); // Thư kiểm tra hàm Update ở DAL nhé
+            return _serRepo.Update(id, name, price, note);
         }
 
-        // 4. Xóa dịch vụ
         public bool DeleteService(string id)
         {
             return _serRepo.Delete(id);
+        }
+        public string GetNewServiceID()
+        {
+            DataTable dt = _serRepo.GetDataTable();
+            int count = dt.Rows.Count + 1;
+            return "S" + count.ToString("D3"); // Tạo mã dạng S001, S002...
         }
     }
 }

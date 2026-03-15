@@ -23,21 +23,24 @@ namespace DAL.AI_Models
         // Hàm lưu kết quả dự đoán từ AI vào bảng HealthRecord
         public bool SavePrediction(HealthPredictionDTO prediction)
         {
-            // Câu lệnh SQL để lưu thông tin sức khỏe
-            string query = "INSERT INTO HealthRecord (PetID, Temperature, HeartRate, DiagnosisID, PredictionDate) " +
-                           "VALUES ( @PetID , @Temp , @Heart , @DiagID , GETDATE() )";
+          // 1.Câu query phải khớp chính xác với bảng HealthRecord trong SQL của Thư
+    string query = "INSERT INTO HealthRecord (PetID, Temperature, HeartRate, DiagnosisID, PredictionDate) " +
+                   "VALUES ( @PetID , @Temp , @Heart , @DiagID , GETDATE() )";
 
-            // Truyền tham số vào để tránh lỗi SQL Injection
+            // 2. ĐÂY LÀ CHỖ QUAN TRỌNG: Thư phải truyền đúng thứ tự các biến
+            // SQL thấy @PetID đầu tiên -> parameter[0] phải là PetID
             object[] parameter = new object[] {
-                prediction.PetID,
-                prediction.Temperature,
-                prediction.HeartRate,
-                prediction.DiagnosisID
-            };
+        prediction.PetID,          // Tương ứng @PetID
+        prediction.Temperature,    // Tương ứng @Temp
+        prediction.HeartRate,      // Tương ứng @Heart
+        prediction.DiagnosisID     // Tương ứng @DiagID
+    };
 
+            // 3. Gọi DataProvider để thực thi
             int result = DataProvider.Instance.ExecuteNonQuery(query, parameter);
 
-            return result > 0; // Trả về true nếu lưu thành công
+            return result > 0;
+       
         }
 
         // Hàm lấy kết quả dự đoán mới nhất của một bé Pet

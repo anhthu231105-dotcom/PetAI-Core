@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AI_Models\HealthPredictionDTO.cs" />
-    <Compile Include="Entities\AccountDTO.cs" />
+    <Compile Include="Entities\UserDTO.cs" />
     <Compile Include="Entities\DiseaseDTO.cs" />
     <Compile Include="Entities\InvoiceDetailDTO.cs" />
     <Compile Include="Entities\MedicineDTO.cs" />

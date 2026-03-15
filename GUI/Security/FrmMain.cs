@@ -83,12 +83,12 @@ namespace GUI.Security
             OpenChildForm(new FrmInvoice());
         }
 
-        private void btnAccount_Click(object sender, EventArgs e)
+        /*private void btnAccount_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "THÔNG TIN TÀI KHOẢN";
             // Xem thông tin người đang đăng nhập
-           // OpenChildForm(new FrmAccount());
-        }
+           //OpenChildForm(new FrmAccount());
+        }*/
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
@@ -97,6 +97,10 @@ namespace GUI.Security
 
             // (Tùy chọn) Thư có thể đổi tiêu đề Form Main để biết mình đang ở trang nào
             this.Text = "PetAI Core - Quản lý Khách hàng";
+        }
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            // Để trống để hết lỗi giao diện nè Thư
         }
     }
 }
