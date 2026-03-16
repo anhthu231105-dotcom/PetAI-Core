@@ -62,7 +62,14 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+>>>>>>> 485ac92f19346538838065c02f7f22829f08e61b
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{75e89623-ad1e-432e-a4c6-f8665e75dc8f}</Project>
