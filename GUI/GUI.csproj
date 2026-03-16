@@ -112,8 +112,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BUS\BUS.csproj">
-      <Project>{4e491c9d-2915-444d-9ff1-89947a10b047}</Project>
+    <ProjectReference Include="..\BUS1\BUS.csproj">
+      <Project>{90d50ea7-4844-4fa0-8efd-10ed4890d173}</Project>
       <Name>BUS</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">

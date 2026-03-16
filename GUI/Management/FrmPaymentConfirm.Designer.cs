@@ -37,10 +37,10 @@
             this.radCash = new System.Windows.Forms.RadioButton();
             this.radTransfer = new System.Windows.Forms.RadioButton();
             this.pnlCash = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCustomerMoney = new System.Windows.Forms.TextBox();
             this.lblChange = new System.Windows.Forms.Label();
+            this.txtCustomerMoney = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.picQR = new System.Windows.Forms.PictureBox();
             this.pnlTransfer = new System.Windows.Forms.Panel();
             this.btnConfirm = new System.Windows.Forms.Button();
@@ -92,7 +92,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(560, 84);
+            this.dateTimePicker1.Location = new System.Drawing.Point(435, 91);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 4;
@@ -114,7 +114,7 @@
             // 
             this.radTransfer.AutoSize = true;
             this.radTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radTransfer.Location = new System.Drawing.Point(560, 184);
+            this.radTransfer.Location = new System.Drawing.Point(412, 184);
             this.radTransfer.Name = "radTransfer";
             this.radTransfer.Size = new System.Drawing.Size(176, 26);
             this.radTransfer.TabIndex = 6;
@@ -134,15 +134,23 @@
             this.pnlCash.Size = new System.Drawing.Size(295, 223);
             this.pnlCash.TabIndex = 7;
             // 
-            // label4
+            // lblChange
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 25);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Tiền khách đưa:";
+            this.lblChange.AutoSize = true;
+            this.lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChange.Location = new System.Drawing.Point(131, 96);
+            this.lblChange.Name = "lblChange";
+            this.lblChange.Size = new System.Drawing.Size(53, 20);
+            this.lblChange.TabIndex = 3;
+            this.lblChange.Text = "label6";
+            // 
+            // txtCustomerMoney
+            // 
+            this.txtCustomerMoney.Location = new System.Drawing.Point(152, 25);
+            this.txtCustomerMoney.Name = "txtCustomerMoney";
+            this.txtCustomerMoney.Size = new System.Drawing.Size(112, 22);
+            this.txtCustomerMoney.TabIndex = 0;
+            this.txtCustomerMoney.TextChanged += new System.EventHandler(this.txtCustomerMoney_TextChanged);
             // 
             // label5
             // 
@@ -154,28 +162,20 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Tiền thối lại:";
             // 
-            // txtCustomerMoney
+            // label4
             // 
-            this.txtCustomerMoney.Location = new System.Drawing.Point(152, 25);
-            this.txtCustomerMoney.Name = "txtCustomerMoney";
-            this.txtCustomerMoney.Size = new System.Drawing.Size(112, 22);
-            this.txtCustomerMoney.TabIndex = 0;
-            this.txtCustomerMoney.TextChanged += new System.EventHandler(this.txtCustomerMoney_TextChanged);
-            // 
-            // lblChange
-            // 
-            this.lblChange.AutoSize = true;
-            this.lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChange.Location = new System.Drawing.Point(131, 96);
-            this.lblChange.Name = "lblChange";
-            this.lblChange.Size = new System.Drawing.Size(53, 20);
-            this.lblChange.TabIndex = 3;
-            this.lblChange.Text = "label6";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(127, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Tiền khách đưa:";
             // 
             // picQR
             // 
             this.picQR.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picQR.BackgroundImage")));
-            this.picQR.Location = new System.Drawing.Point(28, 0);
+            this.picQR.Location = new System.Drawing.Point(0, -3);
             this.picQR.Name = "picQR";
             this.picQR.Size = new System.Drawing.Size(247, 236);
             this.picQR.TabIndex = 8;
@@ -184,7 +184,7 @@
             // pnlTransfer
             // 
             this.pnlTransfer.Controls.Add(this.picQR);
-            this.pnlTransfer.Location = new System.Drawing.Point(502, 216);
+            this.pnlTransfer.Location = new System.Drawing.Point(388, 216);
             this.pnlTransfer.Name = "pnlTransfer";
             this.pnlTransfer.Size = new System.Drawing.Size(296, 236);
             this.pnlTransfer.TabIndex = 9;
@@ -192,7 +192,7 @@
             // btnConfirm
             // 
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(109, 476);
+            this.btnConfirm.Location = new System.Drawing.Point(109, 458);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(119, 47);
             this.btnConfirm.TabIndex = 10;
@@ -203,7 +203,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(530, 476);
+            this.btnCancel.Location = new System.Drawing.Point(436, 458);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(119, 47);
             this.btnCancel.TabIndex = 11;
@@ -215,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(713, 535);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.pnlTransfer);

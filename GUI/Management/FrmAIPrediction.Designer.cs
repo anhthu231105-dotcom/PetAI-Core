@@ -41,6 +41,7 @@
             this.cboPetList = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtConfidence = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.txtAdvice = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.LBLRESULT = new System.Windows.Forms.Label();
             this.btnPredict = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtConfidence = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +100,7 @@
             "Hơi lờ đờ",
             "Ủ rũ",
             "Kích động"});
-            this.cboActivity.Location = new System.Drawing.Point(123, 342);
+            this.cboActivity.Location = new System.Drawing.Point(131, 342);
             this.cboActivity.Name = "cboActivity";
             this.cboActivity.Size = new System.Drawing.Size(121, 28);
             this.cboActivity.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(144, 126);
+            this.txtWeight.Location = new System.Drawing.Point(152, 126);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(100, 27);
             this.txtWeight.TabIndex = 3;
@@ -165,7 +165,7 @@
             this.cboPetList.Items.AddRange(new object[] {
             "MÈO ",
             "CHÓ "});
-            this.cboPetList.Location = new System.Drawing.Point(131, 45);
+            this.cboPetList.Location = new System.Drawing.Point(144, 45);
             this.cboPetList.Name = "cboPetList";
             this.cboPetList.Size = new System.Drawing.Size(155, 28);
             this.cboPetList.TabIndex = 1;
@@ -193,6 +193,13 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "KẾT QUẢ DỰ ĐOÁN";
+            // 
+            // txtConfidence
+            // 
+            this.txtConfidence.Location = new System.Drawing.Point(132, 113);
+            this.txtConfidence.Name = "txtConfidence";
+            this.txtConfidence.Size = new System.Drawing.Size(133, 22);
+            this.txtConfidence.TabIndex = 6;
             // 
             // lblStatus
             // 
@@ -262,13 +269,6 @@
             this.btnSave.Text = "💾 LƯU KẾT QUẢ";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtConfidence
-            // 
-            this.txtConfidence.Location = new System.Drawing.Point(124, 113);
-            this.txtConfidence.Name = "txtConfidence";
-            this.txtConfidence.Size = new System.Drawing.Size(133, 22);
-            this.txtConfidence.TabIndex = 6;
             // 
             // FrmAIPrediction
             // 

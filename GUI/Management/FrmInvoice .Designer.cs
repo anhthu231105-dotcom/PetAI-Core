@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -98,7 +98,7 @@
             // cbPet
             // 
             this.cbPet.FormattingEnabled = true;
-            this.cbPet.Location = new System.Drawing.Point(466, 76);
+            this.cbPet.Location = new System.Drawing.Point(478, 76);
             this.cbPet.Name = "cbPet";
             this.cbPet.Size = new System.Drawing.Size(121, 24);
             this.cbPet.TabIndex = 8;
@@ -114,7 +114,7 @@
             // cbCustomer
             // 
             this.cbCustomer.FormattingEnabled = true;
-            this.cbCustomer.Location = new System.Drawing.Point(130, 77);
+            this.cbCustomer.Location = new System.Drawing.Point(140, 73);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Size = new System.Drawing.Size(121, 24);
             this.cbCustomer.TabIndex = 6;
@@ -122,7 +122,7 @@
             // 
             // txtInvoiceID
             // 
-            this.txtInvoiceID.Location = new System.Drawing.Point(118, 30);
+            this.txtInvoiceID.Location = new System.Drawing.Point(123, 28);
             this.txtInvoiceID.Name = "txtInvoiceID";
             this.txtInvoiceID.Size = new System.Drawing.Size(132, 22);
             this.txtInvoiceID.TabIndex = 5;
@@ -237,8 +237,8 @@
             // 
             // colPrice
             // 
-            dataGridViewCellStyle3.Format = "#";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "#";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle1;
             this.colPrice.HeaderText = "Đơn Giá";
             this.colPrice.MinimumWidth = 6;
             this.colPrice.Name = "colPrice";
@@ -265,7 +265,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(263, 406);
+            this.label7.Location = new System.Drawing.Point(278, 404);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 18);
             this.label7.TabIndex = 11;
@@ -276,7 +276,7 @@
             this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan.Location = new System.Drawing.Point(42, 427);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(185, 57);
+            this.btnThanhToan.Size = new System.Drawing.Size(166, 57);
             this.btnThanhToan.TabIndex = 12;
             this.btnThanhToan.Text = "THANH TOÁN ";
             this.btnThanhToan.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(377, 427);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(166, 57);
+            this.btnClose.Size = new System.Drawing.Size(130, 57);
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "ĐÓNG";
             this.btnClose.UseVisualStyleBackColor = true;
