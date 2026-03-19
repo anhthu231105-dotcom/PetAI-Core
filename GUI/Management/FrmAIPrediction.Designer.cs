@@ -36,7 +36,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtTemp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtWeight = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboPetList = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.LBLRESULT = new System.Windows.Forms.Label();
             this.btnPredict = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtWeight = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Location = new System.Drawing.Point(159, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(449, 29);
             this.label1.TabIndex = 0;
@@ -65,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cboActivity);
             this.groupBox1.Controls.Add(this.cboAppetite);
@@ -78,7 +79,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(-2, 48);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(412, 378);
+            this.groupBox1.Size = new System.Drawing.Size(388, 378);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "THÔNG SỐ ĐẦU VÀO";
@@ -143,13 +144,6 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Thân nhiệt(°C)";
             // 
-            // txtWeight
-            // 
-            this.txtWeight.Location = new System.Drawing.Point(152, 126);
-            this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(100, 27);
-            this.txtWeight.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -169,6 +163,7 @@
             this.cboPetList.Name = "cboPetList";
             this.cboPetList.Size = new System.Drawing.Size(155, 28);
             this.cboPetList.TabIndex = 1;
+            this.cboPetList.SelectedIndexChanged += new System.EventHandler(this.cboPetList_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -181,15 +176,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.MistyRose;
             this.groupBox2.Controls.Add(this.txtConfidence);
             this.groupBox2.Controls.Add(this.lblStatus);
             this.groupBox2.Controls.Add(this.txtAdvice);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.LBLRESULT);
-            this.groupBox2.Location = new System.Drawing.Point(410, 48);
+            this.groupBox2.Location = new System.Drawing.Point(374, 48);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(389, 378);
+            this.groupBox2.Size = new System.Drawing.Size(392, 378);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "KẾT QUẢ DỰ ĐOÁN";
@@ -215,7 +211,7 @@
             this.txtAdvice.Location = new System.Drawing.Point(18, 225);
             this.txtAdvice.Multiline = true;
             this.txtAdvice.Name = "txtAdvice";
-            this.txtAdvice.Size = new System.Drawing.Size(350, 114);
+            this.txtAdvice.Size = new System.Drawing.Size(311, 114);
             this.txtAdvice.TabIndex = 4;
             // 
             // label8
@@ -250,31 +246,40 @@
             // 
             // btnPredict
             // 
+            this.btnPredict.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPredict.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPredict.Location = new System.Drawing.Point(40, 450);
+            this.btnPredict.Location = new System.Drawing.Point(53, 448);
             this.btnPredict.Name = "btnPredict";
             this.btnPredict.Size = new System.Drawing.Size(244, 32);
             this.btnPredict.TabIndex = 3;
             this.btnPredict.Text = "⚡ BẮT ĐẦU DỰ ĐOÁN";
-            this.btnPredict.UseVisualStyleBackColor = true;
+            this.btnPredict.UseVisualStyleBackColor = false;
             this.btnPredict.Click += new System.EventHandler(this.btnPredict_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(473, 448);
+            this.btnSave.Location = new System.Drawing.Point(423, 448);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(240, 34);
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "💾 LƯU KẾT QUẢ";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // txtWeight
+            // 
+            this.txtWeight.Location = new System.Drawing.Point(152, 126);
+            this.txtWeight.Name = "txtWeight";
+            this.txtWeight.Size = new System.Drawing.Size(147, 27);
+            this.txtWeight.TabIndex = 3;
             // 
             // FrmAIPrediction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 545);
+            this.ClientSize = new System.Drawing.Size(779, 535);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnPredict);
             this.Controls.Add(this.groupBox2);
@@ -305,7 +310,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTemp;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LBLRESULT;
         private System.Windows.Forms.TextBox txtAdvice;
@@ -315,5 +319,6 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtConfidence;
+        private System.Windows.Forms.TextBox txtWeight;
     }
 }

@@ -54,5 +54,17 @@ namespace DAL.Repositories
             // Gọi DataProvider để thực thi câu lệnh
             return DataProvider.Instance.ExecuteQuery(query, parameter);
         }
+        public string GetMaxPetID()
+        {
+            // Lệnh này lấy ra ID lớn nhất trong bảng Pet
+            string query = "SELECT MAX(PetID) FROM Pet";
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query);
+
+            if (dt.Rows.Count > 0 && dt.Rows[0][0] != DBNull.Value)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            return null;
+        }
     }
 }

@@ -21,14 +21,14 @@ namespace GUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             //CÁCH 1: Chạy thẳng vào Form chính để test giao diện nhanh
-          //  Application.Run(new FrmMain());
+          Application.Run(new FrmMain());
 
-             // CÁCH 2: Quy trình chuẩn (Chạy Login trước)
+             /*// CÁCH 2: Quy trình chuẩn (Chạy Login trước)
            FrmLogin login = new FrmLogin();
             if (login.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new FrmMain());
-            }
+            }*/
             
         }
     }

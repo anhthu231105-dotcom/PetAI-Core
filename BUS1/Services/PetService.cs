@@ -12,7 +12,9 @@ namespace BUS.Services
     {
         private readonly PetRepository _petRepo = new PetRepository();
 
+
         public DataTable GetAllPets() => _petRepo.GetDataTable();
+
 
         // Thêm string customerID vào tham số đầu vào
         public bool AddPet(string id, string name, string species, string breed, int age, double weight, string customerID)
@@ -43,5 +45,6 @@ namespace BUS.Services
             // Hàm này sẽ gọi xuống Repository để lọc Pet theo chủ
             return _petRepo.GetPetsByCustomer(customerID);
         }
+
     }
 }

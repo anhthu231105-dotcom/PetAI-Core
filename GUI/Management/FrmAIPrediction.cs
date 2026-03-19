@@ -1,4 +1,5 @@
 ﻿using BUS.AI_Services;
+using BUS.Services;
 using DAL.AI_Models;
 using DTO.AI_Models;
 using System;
@@ -18,10 +19,12 @@ namespace GUI.Management
         // 1. Khai báo các đối tượng cần thiết
         private readonly HealthAssistant _aiAssistant = new HealthAssistant();
         private HealthPredictionDTO currentPrediction; // Giỏ đựng kết quả dự đoán
-      //  private readonly HealthAssistant _aiAssistant = new HealthAssistant();
+                                                       //  private readonly HealthAssistant _aiAssistant = new HealthAssistant();
+        private PetService _petService = new PetService();
         public FrmAIPrediction()
         {
             InitializeComponent();
+
         }
 
         private void FrmAIPrediction_Load(object sender, EventArgs e)
@@ -29,7 +32,14 @@ namespace GUI.Management
             // Thiết lập giá trị mặc định cho các lựa chọn
             cboAppetite.SelectedIndex = 0; // "Bình thường"
             cboActivity.SelectedIndex = 0;  // "Linh hoạt"
+                                            // 1. Lấy bảng dữ liệu thú cưng về
+            DataTable dt = _petService.GetAllPets();
 
+            // THỨ TỰ CHUẨN: Xóa cũ -> Gán Member -> Gán dữ liệu
+            cboPetList.DataSource = null;
+            cboPetList.DisplayMember = "PetName";
+            cboPetList.ValueMember = "PetID";
+            cboPetList.DataSource = dt; // Chỉ gán DataSource ở dòng cuối cùng này thôi
             // Thư nhớ kiểm tra hàm Load dữ liệu cho cboPetList ở đây nhé
         }
 
@@ -118,6 +128,30 @@ namespace GUI.Management
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi lưu dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void cboPetList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem ComboBox có đang chọn dòng nào hợp lệ không
+            if (cboPetList.SelectedItem == null) return;
+
+            try
+            {
+                // 2. Ép kiểu Item đang chọn về DataRowView để truy cập các cột dữ liệu
+                DataRowView row = cboPetList.SelectedItem as DataRowView;
+
+                if (row != null)
+                {
+                    // 3. Lấy giá trị cột "Weight". 
+                    // Thư nhớ kiểm tra xem trong SQL tên cột là "Weight" hay "PetWeight" nhé!
+                    txtWeight.Text = row["Weight"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Ghi log nhẹ nếu có lỗi xảy ra để Thư biết đường sửa
+                Console.WriteLine("Lỗi lấy cân nặng: " + ex.Message);
             }
         }
     }

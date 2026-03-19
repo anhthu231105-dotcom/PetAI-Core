@@ -1,4 +1,5 @@
-﻿using BUS.Services;
+﻿using BUS.Management;
+using BUS.Services;
 using DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ namespace GUI.Management
                 DataTable dtPet = _petService.GetAllPets();
                 dgvPet.DataSource = dtPet;
 
-                CustomerService _cusService = new CustomerService();
+                CustomerBUS _cusService = new CustomerBUS();
 
                 // SỬA TẠI ĐÂY: Dùng var hoặc List<Customer> thay cho DataTable
                 var dsCustomer = _cusService.GetAllCustomers();

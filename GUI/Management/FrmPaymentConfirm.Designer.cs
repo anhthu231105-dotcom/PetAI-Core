@@ -53,8 +53,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 31);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(201, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(305, 29);
             this.label1.TabIndex = 0;
@@ -63,10 +65,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(262, 29);
+            this.label2.Size = new System.Drawing.Size(219, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "TỔNG TIỀN CẦN TRẢ:";
             // 
@@ -74,7 +76,7 @@
             // 
             this.lblTotalPay.AutoSize = true;
             this.lblTotalPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalPay.Location = new System.Drawing.Point(269, 84);
+            this.lblTotalPay.Location = new System.Drawing.Point(237, 84);
             this.lblTotalPay.Name = "lblTotalPay";
             this.lblTotalPay.Size = new System.Drawing.Size(64, 25);
             this.lblTotalPay.TabIndex = 2;
@@ -83,6 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(33, 154);
             this.label3.Name = "label3";
@@ -125,20 +128,21 @@
             // 
             // pnlCash
             // 
+            this.pnlCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.pnlCash.Controls.Add(this.lblChange);
             this.pnlCash.Controls.Add(this.txtCustomerMoney);
             this.pnlCash.Controls.Add(this.label5);
             this.pnlCash.Controls.Add(this.label4);
             this.pnlCash.Location = new System.Drawing.Point(-5, 229);
             this.pnlCash.Name = "pnlCash";
-            this.pnlCash.Size = new System.Drawing.Size(295, 223);
+            this.pnlCash.Size = new System.Drawing.Size(282, 223);
             this.pnlCash.TabIndex = 7;
             // 
             // lblChange
             // 
             this.lblChange.AutoSize = true;
             this.lblChange.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChange.Location = new System.Drawing.Point(131, 96);
+            this.lblChange.Location = new System.Drawing.Point(131, 93);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(53, 20);
             this.lblChange.TabIndex = 3;
@@ -186,35 +190,39 @@
             this.pnlTransfer.Controls.Add(this.picQR);
             this.pnlTransfer.Location = new System.Drawing.Point(388, 216);
             this.pnlTransfer.Name = "pnlTransfer";
-            this.pnlTransfer.Size = new System.Drawing.Size(296, 236);
+            this.pnlTransfer.Size = new System.Drawing.Size(247, 236);
             this.pnlTransfer.TabIndex = 9;
             // 
             // btnConfirm
             // 
+            this.btnConfirm.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.ForeColor = System.Drawing.Color.Black;
             this.btnConfirm.Location = new System.Drawing.Point(109, 458);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(119, 47);
             this.btnConfirm.TabIndex = 10;
             this.btnConfirm.Text = "XÁC NHẬN ";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(436, 458);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(119, 47);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "HỦY";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FrmPaymentConfirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(713, 535);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);

@@ -50,7 +50,7 @@ namespace BUS.AI_Services
                     var json = JsonConvert.SerializeObject(inputData);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                    var response = await client.PostAsync("http://127.0.0.1:5000/predict", content);
+                    var response = await client.PostAsync("http://127.0.0.1:5000", content);
 
                     if (response.IsSuccessStatusCode)
                     {
