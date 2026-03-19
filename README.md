@@ -1,6 +1,8 @@
  <img width="800" height="533" alt="image" src="https://github.com/user-attachments/assets/3d0bceb3-14c2-4ba9-99fd-21ebfb4a33fd" />
 
 
+
+
 👤 Thông tin tác giả
 Sinh viên thực hiện: Nguyễn Thị Anh Thư
 
@@ -47,4 +49,28 @@ Môi trường phát triển: Visual Studio 2022 (Logo tím)
 Nền tảng: .NET Desktop Development
 
 Cơ sở dữ liệu SQL: Server hoặc Microsoft Access
+
+## 🚀 TRUY CẬP NHANH (QUAN TRỌNG)
+Để xem giới thiệu chi tiết và tải trọn bộ đồ án, thầy vui lòng truy cập tại:
+👉 **[Hugging Face PetAI Dashboard](https://huggingface.co/spaces/anhthu2311/PetAI-Demo)**
+
+  👉 Link Đồ án: https://huggingface.co/spaces/anhthu2311/PetAI-Demo
+
+Xem thông tin: Tại link trên, Thầy có thể xem sơ lược về công nghệ và hình ảnh giao diện đồ án của em.
+
+Tải trọn bộ file: Thầy nhấn vào nút màu xanh "📂 TRUY CẬP THƯ MỤC ĐỒ ÁN (GOOGLE DRIVE)".
+
+Nội dung thư mục: Sau khi nhấn nút, Thầy sẽ vào thẳng thư mục Drive của em, trong đó bao gồm:
+
+File nén .zip (Code và file chạy .exe).
+
+File Script SQL để khởi tạo Database.
+
+File báo cáo Word/PDF chi tiết.
+
+Em rất mong nhận được những góp ý từ Thầy ạ. Em cảm ơn Thầy!"
+
+
+    
+
 
