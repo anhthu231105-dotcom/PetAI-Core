@@ -48,3 +48,8 @@ Nền tảng: .NET Desktop Development
 
 Cơ sở dữ liệu SQL: Server hoặc Microsoft Access
 
+
+
+Code của em : https://drive.google.com/drive/u/0/home
+
+
