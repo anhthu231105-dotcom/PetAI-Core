@@ -15,6 +15,7 @@ Giảng viên hướng dẫn: Thầy Trần Văn Thiện
 📝 Giới thiệu
 Đây là dự án Đồ án Cơ sở 1
 - Ngành Công nghệ Thông tin tại Trường Đại học Nam Cần Thơ (DNC). Phần mềm được thiết kế để quản lý toàn diện các hoạt động tại cửa hàng thú cưng, từ việc theo dõi sức khỏe vật nuôi đến quản lý dịch vụ chăm sóc và bán hàng.
+
 🎯 Mục tiêu dự án
 Dự án được xây dựng với các mục tiêu chính sau:
 
